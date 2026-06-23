@@ -5,6 +5,9 @@ const GOLD = "#FFB627";
 const RED  = "#FF4E6A";
 const BLUE = "#4DA8FF";
 
+const DL_MAC = "https://github.com/Kitreezy/wtuDotaClient/releases/download/v1.0.0/WTU.Dota_0.1.0_aarch64.dmg";
+const DL_WIN = "https://github.com/Kitreezy/wtuDotaClient/releases/tag/v1.0.0"; // placeholder until Windows build
+
 const TIER_DATA = [
   { tier:"S", name:"Morphling",   wr:54.3 },
   { tier:"S", name:"Leshrac",     wr:53.8 },
@@ -60,7 +63,7 @@ function Nav() {
 function DlButtons() {
   return (
     <div style={{ display:"flex", gap:14, flexWrap:"wrap", justifyContent:"center", marginTop:40 }}>
-      <a href="#download" style={{
+      <a href={DL_MAC} style={{
         display:"flex", alignItems:"center", gap:12,
         background:TEAL, color:"#0D0F14",
         padding:"13px 26px", borderRadius:12, textDecoration:"none",
@@ -71,16 +74,17 @@ function DlButtons() {
           <span style={{ fontSize:15, fontWeight:700 }}>macOS</span>
         </span>
       </a>
-      <a href="#download" style={{
+      <a href={DL_WIN} style={{
         display:"flex", alignItems:"center", gap:12,
         background:"transparent", color:"#E8EAF2",
         padding:"13px 26px", borderRadius:12, textDecoration:"none",
         border:"1px solid rgba(255,255,255,0.10)",
+        opacity:0.6,
       }}>
         <span style={{ fontSize:22 }}>🪟</span>
         <span style={{ display:"flex", flexDirection:"column", alignItems:"flex-start" }}>
           <span style={{ fontSize:10, color:"#8B90A0", letterSpacing:"0.04em" }}>СКАЧАТЬ ДЛЯ</span>
-          <span style={{ fontSize:15, fontWeight:700 }}>Windows</span>
+          <span style={{ fontSize:15, fontWeight:700 }}>Windows <span style={{ fontSize:11, fontWeight:400, opacity:.6 }}>скоро</span></span>
         </span>
       </a>
     </div>
@@ -379,8 +383,8 @@ export default function HomePage() {
           gap:16, maxWidth:700, margin:"0 auto",
         }}>
           {[
-            {os:"macOS", icon:"", ver:"v1.0 · 12 MB", ext:".dmg", req:"macOS 13+ · Apple Silicon · Intel", featured:true},
-            {os:"Windows", icon:"🪟", ver:"v1.0 · 15 MB", ext:".exe", req:"Windows 10/11 (64-bit) · .NET включён", featured:false},
+            {os:"macOS", icon:"", ver:"v1.0 · Apple Silicon", ext:".dmg", req:"macOS 13+ · Apple Silicon", featured:true, href:DL_MAC},
+            {os:"Windows", icon:"🪟", ver:"скоро", ext:".exe", req:"Windows 10/11 (64-bit)", featured:false, href:DL_WIN},
           ].map(p=>(
             <div key={p.os} style={{
               background:"#13161D",
@@ -404,7 +408,7 @@ export default function HomePage() {
                 )}
               </div>
               <div style={{fontSize:12,color:"#4A4F60",lineHeight:1.8}}>{p.req}</div>
-              <a href="#download" style={{
+              <a href={p.href} style={{
                 display:"flex",alignItems:"center",justifyContent:"center",gap:8,
                 padding:"12px 0",borderRadius:10,textDecoration:"none",
                 background:p.featured?TEAL:"#1A1D26",
