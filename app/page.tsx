@@ -5,8 +5,8 @@ const GOLD = "#FFB627";
 const RED  = "#FF4E6A";
 const BLUE = "#4DA8FF";
 
-const DL_MAC = "https://github.com/Kitreezy/wtuDotaClient/releases/download/v1.0.0/WTU.Dota_0.1.0_aarch64.dmg";
-const DL_WIN = "https://github.com/Kitreezy/wtuDotaClient/releases/tag/v1.0.0"; // placeholder until Windows build
+const DL_MAC = "https://github.com/Kitreezy/wtuDotaClient/releases/download/v1.1.2/WTU.Dota_0.1.0_aarch64.dmg";
+const DL_WIN = "https://github.com/Kitreezy/wtuDotaClient/releases/download/v1.1.2/WTU.Dota_0.1.0_x64-setup.exe";
 
 const TIER_DATA = [
   { tier:"S", name:"Morphling",   wr:54.3 },
@@ -79,12 +79,11 @@ function DlButtons() {
         background:"transparent", color:"#E8EAF2",
         padding:"13px 26px", borderRadius:12, textDecoration:"none",
         border:"1px solid rgba(255,255,255,0.10)",
-        opacity:0.6,
       }}>
         <span style={{ fontSize:22 }}>🪟</span>
         <span style={{ display:"flex", flexDirection:"column", alignItems:"flex-start" }}>
           <span style={{ fontSize:10, color:"#8B90A0", letterSpacing:"0.04em" }}>СКАЧАТЬ ДЛЯ</span>
-          <span style={{ fontSize:15, fontWeight:700 }}>Windows <span style={{ fontSize:11, fontWeight:400, opacity:.6 }}>скоро</span></span>
+          <span style={{ fontSize:15, fontWeight:700 }}>Windows</span>
         </span>
       </a>
     </div>
@@ -384,7 +383,7 @@ export default function HomePage() {
         }}>
           {[
             {os:"macOS", icon:"", ver:"v1.0 · Apple Silicon", ext:".dmg", req:"macOS 13+ · Apple Silicon", featured:true, href:DL_MAC},
-            {os:"Windows", icon:"🪟", ver:"скоро", ext:".exe", req:"Windows 10/11 (64-bit)", featured:false, href:DL_WIN},
+            {os:"Windows", icon:"🪟", ver:"v1.1.2 · x64", ext:".exe", req:"Windows 10/11 (64-bit)", featured:false, href:DL_WIN},
           ].map(p=>(
             <div key={p.os} style={{
               background:"#13161D",
