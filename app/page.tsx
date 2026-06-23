@@ -419,6 +419,29 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+
+        {/* macOS note */}
+        <div style={{
+          maxWidth:700, margin:"24px auto 0",
+          background:"rgba(255,184,39,0.06)", border:"1px solid rgba(255,184,39,0.18)",
+          borderRadius:12, padding:"14px 20px",
+          display:"flex", gap:14, alignItems:"flex-start",
+        }}>
+          <span style={{fontSize:18,flexShrink:0}}>⚠️</span>
+          <div>
+            <div style={{fontSize:13,fontWeight:700,color:"#FFB627",marginBottom:4}}>macOS: «Файл повреждён»</div>
+            <div style={{fontSize:12,color:"#8B90A0",lineHeight:1.7}}>
+              macOS блокирует неподписанные приложения. Если видишь это сообщение, открой Терминал и выполни:
+            </div>
+            <code style={{
+              display:"block", marginTop:8,
+              background:"#0D0F14", border:"1px solid rgba(255,255,255,0.08)",
+              borderRadius:8, padding:"8px 14px",
+              fontSize:12, color:TEAL, fontFamily:"monospace",
+            }}>xattr -cr &quot;/Applications/WTU Dota.app&quot;</code>
+            <div style={{fontSize:11,color:"#4A4F60",marginTop:6}}>Затем открой приложение снова — запустится без проблем.</div>
+          </div>
+        </div>
       </section>
 
       {/* CTA */}
